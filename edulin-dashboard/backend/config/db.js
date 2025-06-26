@@ -4,11 +4,11 @@ const sql = require('mssql');
 const config = {
   user: 'sa',
   password: 'Cibertec2404',
-  server: 'WISAR_GAMER_1', // Ej: localhost o IP
+  server: 'WISAR_GAMER_1',
   database: 'edulin',
   options: {
-    encrypt: true, // Si usas Azure o SSL
-    trustServerCertificate: false // Cambia a true si hay errores de certificado
+    encrypt: true,
+    trustServerCertificate: true
   }
 };
 
