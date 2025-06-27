@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await apiClient.post('/auth/login', { email, password });
+     const res = await apiClient.post('/auth/login', { email, password });
 
       if (res.status === 200) {
         const { token, user } = res.data;

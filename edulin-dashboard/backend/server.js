@@ -4,7 +4,7 @@ const app = express();
 
 // CORS: permite solicitudes desde el frontend
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'http://localhost:5173', // Cambia esto al origen de tu frontend
   credentials: true
 }));
 
@@ -13,7 +13,7 @@ app.use(express.json());
 
 // Rutas
 const authRoutes = require('./routes/authRoutes');
-app.use('/api/auth', authRoutes);
+app.use('/api/auth/login', authRoutes);
 
 // Ruta no encontrada (opcional pero recomendado)
 app.use((req, res) => {
@@ -27,7 +27,7 @@ app.use((err, req, res, next) => {
 });
 
 // Iniciar servidor
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5173;
 app.listen(PORT, () => {
   console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
 });

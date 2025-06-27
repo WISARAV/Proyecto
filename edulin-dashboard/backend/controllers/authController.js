@@ -1,6 +1,5 @@
 // backend/controllers/authController.js
 const jwt = require('jsonwebtoken');
-const sql = require('mssql'); // ✅ IMPORTANTE: necesitas esto
 const { pool } = require('../config/db');
 
 exports.login = async (req, res) => {
@@ -18,7 +17,7 @@ exports.login = async (req, res) => {
 
     const user = result.recordset[0];
 
-    // Validar contraseña (usa bcrypt en producción)
+    // Validar contraseña (en producción usa bcrypt)
     if (password !== user.password) {
       return res.status(400).json({ message: 'Contraseña incorrecta' });
     }
@@ -42,7 +41,7 @@ exports.login = async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error en el login:', error);
+    console.error('Error en el login:', error); // Captura errores detallados
     res.status(500).json({ message: 'Error en el servidor' });
   }
 };
