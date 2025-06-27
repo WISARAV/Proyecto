@@ -4,7 +4,7 @@ const sql = require('mssql');
 const config = {
   user: 'sa',
   password: 'Cibertec2404',
-  server: 'WISAR_GAMER_1',
+  server: 'WISAR_GAMER_1', // Asegúrate de que sea la dirección correcta
   database: 'edulin',
   options: {
     encrypt: true,

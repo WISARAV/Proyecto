@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import useAuth from './hooks/useAuth'; 
 // Componentes y context
-import { ProtectedRoute } from './components/ProtectedRoute';
+import  ProtectedRoute  from './components/ProtectedRoute';
 // Solo un dashboard básico por ahora
 const Dashboard = () => (
   <div className="d-flex justify-content-center align-items-center vh-100">
