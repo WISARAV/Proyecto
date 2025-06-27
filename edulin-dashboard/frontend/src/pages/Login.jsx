@@ -14,12 +14,12 @@ const Login = () => {
     e.preventDefault();
 
     try {
-     const res = await apiClient.post('/auth/login', { email, password });
+      const res = await apiClient.post('/auth/login', { email, password });
 
       if (res.status === 200) {
         const { token, user } = res.data;
 
-        // Guardamos en contexto
+        // Guardamos usuario y token
         auth.login(user, token);
 
         // Redirigimos al dashboard
@@ -27,16 +27,12 @@ const Login = () => {
       }
     } catch (err) {
       console.error('Error al iniciar sesión:', err);
-      if (err.response && err.response.data && err.response.data.message) {
-        setError(err.response.data.message);
-      } else {
-        setError('Error inesperado. Inténtalo nuevamente.');
-      }
+      setError('Correo o contraseña incorrectos');
     }
   };
 
   return (
-    <div className="d-flex align-items-center justify-content-center vh-100" style={{
+    <div className="d-flex justify-content-center align-items-center vh-100" style={{
       backgroundImage: "url('https://images.unsplash.com/photo-1509062522242-87f3f7c4a3a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')",
       backgroundSize: 'cover',
       backgroundPosition: 'center',

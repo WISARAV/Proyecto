@@ -1,4 +1,3 @@
-// backend/controllers/authController.js
 const jwt = require('jsonwebtoken');
 const { pool } = require('../config/db');
 
@@ -6,9 +5,8 @@ exports.login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Buscar usuario por email
     const result = await pool.request()
-      .input('email', sql.VarChar, email)
+      .input('email', 'VarChar', email)
       .query('SELECT TOP 1 * FROM users WHERE email = @email');
 
     if (result.recordset.length === 0) {
@@ -17,12 +15,10 @@ exports.login = async (req, res) => {
 
     const user = result.recordset[0];
 
-    // Validar contraseña (en producción usa bcrypt)
     if (password !== user.password) {
       return res.status(400).json({ message: 'Contraseña incorrecta' });
     }
 
-    // Generar token JWT
     const token = jwt.sign(
       { id: user.id, email: user.email, role: user.role },
       process.env.JWT_SECRET || 'tu_secreto_seguro',
@@ -41,7 +37,7 @@ exports.login = async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error en el login:', error); // Captura errores detallados
+    console.error('Error en el login:', error);
     res.status(500).json({ message: 'Error en el servidor' });
   }
 };

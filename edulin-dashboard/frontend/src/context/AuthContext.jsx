@@ -1,4 +1,3 @@
-// frontend/src/context/AuthContext.jsx
 import React, { createContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
@@ -13,7 +12,7 @@ export const AuthProvider = ({ children }) => {
     setUser(userData);
     setToken(jwtToken);
     setIsAuthenticated(true);
-    localStorage.setItem('token', jwtToken); // Guardamos el token
+    localStorage.setItem('token', jwtToken);
   };
 
   // Simular cierre de sesión
@@ -21,15 +20,14 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     setToken(null);
     setIsAuthenticated(false);
-    localStorage.removeItem('token'); // Eliminamos el token
+    localStorage.removeItem('token');
   };
 
-  // Verificar si hay un token al cargar la app
+  // Verificar si hay token al cargar
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
       setIsAuthenticated(true);
-      // Aquí podrías hacer una llamada al backend para obtener los datos del usuario
     }
   }, []);
 

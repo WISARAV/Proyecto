@@ -1,11 +1,9 @@
-// frontend/src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
-import useAuth from './hooks/useAuth'; 
-// Componentes y context
-import  ProtectedRoute  from './components/ProtectedRoute';
-// Solo un dashboard básico por ahora
+
+// Componente temporal para dashboard
 const Dashboard = () => (
   <div className="d-flex justify-content-center align-items-center vh-100">
     <h2>Bienvenido al Dashboard</h2>

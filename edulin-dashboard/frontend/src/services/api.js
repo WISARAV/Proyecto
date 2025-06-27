@@ -1,8 +1,7 @@
-// frontend/src/services/api.js
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:5173/api', // Asegúrate de que sea el puerto correcto
+  baseURL: 'http://localhost:5000/api', // Puerto correcto del backend
   headers: {
     'Content-Type': 'application/json',
   },
