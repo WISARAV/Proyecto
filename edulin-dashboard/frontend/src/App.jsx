@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 
-// Componente temporal para dashboard
+// Temporal: componente de dashboard
 const Dashboard = () => (
   <div className="d-flex justify-content-center align-items-center vh-100">
     <h2>Bienvenido al Dashboard</h2>

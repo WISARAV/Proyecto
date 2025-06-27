@@ -12,7 +12,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+     console.log('📩 Enviando:', { email, password });
     try {
       const res = await apiClient.post('/auth/login', { email, password });
 
