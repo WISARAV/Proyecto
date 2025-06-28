@@ -4,8 +4,8 @@ import React from 'react';
 const TeachersPage = () => {
   return (
     <div className="container mt-5">
-      <h2>Teachers Page</h2>
-      <p>Contenido exclusivo para profesores y administradores.</p>
+      <h2>Profesores</h2>
+      <p>Página exclusiva para administradores y profesores.</p>
     </div>
   );
 };

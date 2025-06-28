@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
   };
 
-  // Verificar si hay un token al cargar la app
+  // Verificar token al cargar
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     if (storedToken) {

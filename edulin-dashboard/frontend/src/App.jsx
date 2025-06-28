@@ -1,6 +1,6 @@
 // frontend/src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import StudentsPage from './pages/StudentsPage';
@@ -11,9 +11,13 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Ruta por defecto */}
+        <Route path="/" element={<Navigate to="/login" />} />
+
+        {/* Página de login */}
         <Route path="/login" element={<Login />} />
-        
-        {/* Solo Admin puede acceder */}
+
+        {/* Rutas protegidas */}
         <Route
           path="/dashboard"
           element={
@@ -22,8 +26,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-        
-        {/* Admin y Profesores pueden acceder */}
         <Route
           path="/teachers"
           element={
@@ -32,8 +34,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
-        {/* Todos los usuarios pueden ver estudiantes */}
         <Route
           path="/students"
           element={

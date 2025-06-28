@@ -1,5 +1,6 @@
 // backend/controllers/authController.js
 const jwt = require('jsonwebtoken');
+const sql = require('mssql');
 const { pool } = require('../config/db');
 
 exports.login = async (req, res) => {
