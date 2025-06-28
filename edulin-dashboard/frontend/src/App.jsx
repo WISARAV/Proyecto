@@ -1,33 +1,44 @@
+// frontend/src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
-
-// Temporal: componente de dashboard
-const Dashboard = () => (
-  <div className="d-flex justify-content-center align-items-center vh-100">
-    <h2>Bienvenido al Dashboard</h2>
-  </div>
-);
+import Dashboard from './pages/Dashboard';
+import StudentsPage from './pages/StudentsPage';
+import TeachersPage from './pages/TeachersPage';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
+        
+        {/* Solo Admin puede acceder */}
         <Route
           path="/dashboard"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute allowedRoles={['admin']}>
               <Dashboard />
             </ProtectedRoute>
           }
         />
+        
+        {/* Admin y Profesores pueden acceder */}
         <Route
-          path="/"
+          path="/teachers"
           element={
-            <ProtectedRoute>
-              <Dashboard />
+            <ProtectedRoute allowedRoles={['admin', 'teacher']}>
+              <TeachersPage />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Todos los usuarios pueden ver estudiantes */}
+        <Route
+          path="/students"
+          element={
+            <ProtectedRoute allowedRoles={['admin', 'teacher', 'student']}>
+              <StudentsPage />
             </ProtectedRoute>
           }
         />

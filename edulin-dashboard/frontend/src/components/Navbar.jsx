@@ -1,3 +1,4 @@
+// frontend/src/components/Navbar.jsx
 import React from 'react';
 
 const Navbar = () => {
@@ -5,7 +6,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
       <div className="container-fluid">
         <a className="navbar-brand fw-bold" href="/dashboard">
-          Plataforma Educativa
+          EDULIN WORK CODE
         </a>
         <button
           className="btn btn-outline-secondary d-lg-none"
@@ -19,10 +20,10 @@ const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0">
             <li className="nav-item me-3">
-              <a className="nav-link" href="#">Notificaciones</a>
+              <a className="nav-link" href="#">Search here</a>
             </li>
             <li className="nav-item me-3">
-              <a className="nav-link" href="#">Perfil</a>
+              <a className="nav-link" href="#">Notifications</a>
             </li>
             <li className="nav-item">
               <a className="nav-link btn btn-danger text-white" href="/login">Cerrar Sesión</a>

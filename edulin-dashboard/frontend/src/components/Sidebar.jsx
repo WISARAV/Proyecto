@@ -1,3 +1,4 @@
+// frontend/src/components/Sidebar.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,23 +10,24 @@ const Sidebar = () => {
       <h4 className="text-center mb-4">Menú</h4>
       <ul className="nav nav-pills flex-column gap-2">
         <li className="nav-item">
-          <a className="nav-link active" href="/dashboard">Inicio</a>
+          <a className="nav-link active" href="/dashboard">Dashboard</a>
         </li>
         <li className="nav-item">
           <a className="nav-link" onClick={() => navigate('/students')} role="button">
-            Estudiantes
+            Students
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" onClick={() => navigate('/courses')} role="button">
-            Cursos
+          <a className="nav-link" onClick={() => navigate('/teachers')} role="button">
+            Teachers
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" onClick={() => navigate('/settings')} role="button">
-            Configuración
+          <a className="nav-link" onClick={() => navigate('/departments')} role="button">
+            Departments
           </a>
         </li>
+        {/* ... más opciones */}
       </ul>
     </div>
   );

@@ -1,3 +1,4 @@
+// frontend/src/context/AuthContext.jsx
 import React, { createContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
@@ -23,7 +24,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
   };
 
-  // Verificar si hay token al cargar
+  // Verificar si hay un token al cargar la app
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
